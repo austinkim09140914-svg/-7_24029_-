@@ -620,11 +620,5 @@ with gr.Blocks(title="Bomber Escape RL") as demo:
     reset_btn.click(reset_all, inputs=None, outputs=[state, image, info])
 
 if __name__ == "__main__":
-    import os
 
-    # Hugging Face Spaces 같은 배포 환경에서는 0.0.0.0 필요
-    # 로컬 실행에서는 127.0.0.1로 열어야 브라우저 접속 가능
-    if os.environ.get("SPACE_ID"):
-        demo.launch(server_name="0.0.0.0", server_port=7860)
-    else:
-        demo.launch(server_name="127.0.0.1", server_port=7860)
+    demo.launch(server_name="127.0.0.1", server_port=7860)
